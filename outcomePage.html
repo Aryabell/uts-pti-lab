@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+<body>
+  <div class="container">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <span class="navbar-brand">Money Tracker</span>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Hello, <span id="username"></span>!<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html" id="main">Main</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="incomePage.html" id="income">Income</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="outcomePage.html" id="outcome">Outcome</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutPage.html" id="about">About Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+     
+     <!-- Outcome Page Content -->
+     <div id="outcomePage">
+        <h2>Outcome Page</h2>
+        <form id="outcomeForm">
+          <div class="form-group">
+            <label for="outcomeName">Nama Transaksi</label>
+            <input type="text" class="form-control" id="outcomeName">
+          </div>
+          <div class="form-group">
+            <label for="outcomeAmount">Nominal Transaksi</label>
+            <input type="number" class="form-control" id="outcomeAmount">
+          </div>
+          <div class="form-group">
+            <label for="outcomeCategory">Kategori Transaksi</label>
+            <select class="form-control" id="outcomeCategory">
+              <option value="Main">Main</option>
+              <option value="Edukasi">Edukasi</option>
+              <option value="Belanja">Belanja</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+
+       <!-- Bootstrap JS and custom JS -->
+  <script>
+    let username = localStorage.getItem("username");
+    if (username) {
+      document.getElementById("username").textContent = username;
+    } else {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
