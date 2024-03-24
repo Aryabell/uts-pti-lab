@@ -1,5 +1,3 @@
-// Script for Money Tracker
-
 // Retrieve user data from input or storage
 let username = ""; // Initialize to empty string
 let balance = 0; // Initialize to 0
