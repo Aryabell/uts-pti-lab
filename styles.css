@@ -1,24 +1,26 @@
 .grid-container1 {
-    display: grid;
+    display: flex;
     padding-top: 15px;
     grid-template-columns: auto auto;
     border-radius: 10px;
     gap: 50px;
+    justify-content: center;
+    align-items: center;
 }
 
 .grid-container1 #item {
-    height: 280px;
+    height: 370px;
     width: 99%;
     padding: 5px;
     border-radius: 10px;
-    background-color: gray;
+    background-color: green;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
 .grid-container1 #item img{
-    width: 70px;
+    width: 250px;
     border-radius: 50%;
     padding-top: 15px;
 }
@@ -33,28 +35,64 @@
     padding-left: 10px;
 }
 
-.grid-container1 #item1 {
-    height: 280px;
-    max-width: 99%;
+.grid-container2 {
+    display: flex;
+    padding-top: 15px;
+    grid-template-columns: auto auto;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.grid-container2 #item1 {
+    height: 370px;
+    width: 99%;
     padding: 5px;
     border-radius: 10px;
-    background-color: gray;
+    background-color: orange;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.grid-container1 #item1 img{
-    width: 70px;
+.grid-container2 #item1 img{
+    width: 250px;
     border-radius: 50%;
     padding-top: 15px;
 }
 
-.grid-container1 #item1 h3{
+.grid-container2 #item1 h3{
     padding-top: 15px;
 }
 
-.grid-container1 #item1 p {
+.grid-container2 #item1 p {
+    text-align: justify;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+
+.grid-container2 #item2 {
+    height: 370px;
+    width: 99%;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grid-container2 #item2 img{
+    width: 250px;
+    border-radius: 50%;
+    padding-top: 15px;
+}
+
+.grid-container2 #item2 h3{
+    padding-top: 15px;
+}
+
+.grid-container2 #item2 p {
     text-align: justify;
     padding-right: 10px;
     padding-left: 10px;
