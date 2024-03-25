@@ -5,32 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Tracker</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
   </head>
 <body>
   <div class="container">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <span class="navbar-brand">Money Tracker</span>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Hello, <span id="username"></span>!<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html" id="main">Main</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="incomePage.html" id="income">Income</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="outcomePage.html" id="outcome">Outcome</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="aboutPage.html" id="about">About Us</a>
-          </li>
-        </ul>
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+      <div id="myToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 10px; right: 1px">
+        <div class="toast-header">
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/004/249/003/small_2x/error-defect-warning-icon-isolated-on-white-background-free-vector.jpg" class="rounded me-2" alt="..." style="width: 40px; height: 40px;">
+          <strong class="me-auto">Error</strong>
+          <span style="margin-left: 35px;"><small>Just now</small></span>
+          <button type="button" class="close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body">
+          Please fill all required field!
+        </div>
       </div>
-    </nav>
+    </div>
+    
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+      <div id="savedToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 10px; right: 1px;">
+        <div class="toast-header">
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/011/858/556/small/green-check-mark-icon-with-circle-tick-box-check-list-circle-frame-checkbox-symbol-sign-png.png" class="rounded me-2" alt="..." style="width: 50px; height: 30px;">>
+          <strong class="me-auto">Success!</strong>
+          <span style="margin-left: 35px;"><small>Just now</small></span>
+          <button type="button" class="close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body">
+          Transactions saved successfully!
+        </div>
+      </div>
+    </div>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="main.html">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2zdOdvSxr0eQ9SPwOYLOnpt4dXGQc2lp9bw&usqp=CAU" class="rounded me-2" alt="Logo" style="width: 40px; height: 40px;">
+    Money Tracker
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Hello, <span id="username"></span>!<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="main.html" id="main">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="incomePage.html" id="income">Income</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="outcomePage.html" id="outcome">Outcome</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="aboutPage.html" id="about">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html" id="logout">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
     
     <!-- Income Page Content -->
      <div id="incomePage">
@@ -65,11 +106,56 @@
     } else {
       window.location.href = "login.html";
     }
+
+ document.getElementById("incomeForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  // Get form inputs
+  let incomeName = document.getElementById("incomeName").value;
+  let incomeAmount = document.getElementById("incomeAmount").value;
+  let incomeCategory = document.getElementById("incomeCategory").value;
+
+  if ( !incomeName || !incomeAmount || !incomeCategory) {
+      var toastEl = document.getElementById('myToast');
+      var toast = new bootstrap.Toast(toastEl);
+      toast.show();
+    }
+  else {
+      var toastEl = document.getElementById('savedToast');
+      var toast = new bootstrap.Toast(toastEl);
+      toast.show();
+  }
+
+  let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+
+  transactions.push({ 
+    "incomeName": incomeName,
+    "incomeAmount": incomeAmount,
+    "incomeCategory": incomeCategory,
+    "incomeType": "INCOME",
+  });
+
+  let balance = parseInt(localStorage.getItem("balance") || "0")
+
+  balance += parseInt(incomeAmount)
+
+  localStorage.setItem("balance", balance)
+
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+
+});
+
+document.getElementById("logout").addEventListener("click", function(event) {
+    event.preventDefault();
+    localStorage.removeItem("transactions");
+    localStorage.removeItem("balance");
+    window.location.href = "index.html";
+});
   </script>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

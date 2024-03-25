@@ -1,0 +1,26 @@
+
+/* CSS untuk tampilan div */
+#balance {
+    background-color: #0a08084a;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  #transactions {
+    border: 1px solid #882c2c;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .transaction-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .transaction-item p {
+    margin: 0;
+  }
+  
+  
