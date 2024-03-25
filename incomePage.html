@@ -121,12 +121,7 @@
       toast.show();
     }
   else {
-      var toastEl = document.getElementById('savedToast');
-      var toast = new bootstrap.Toast(toastEl);
-      toast.show();
-  }
-
-  let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+    let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
   transactions.push({ 
     "incomeName": incomeName,
@@ -142,6 +137,12 @@
   localStorage.setItem("balance", balance)
 
   localStorage.setItem("transactions", JSON.stringify(transactions));
+      var toastEl = document.getElementById('savedToast');
+      var toast = new bootstrap.Toast(toastEl);
+      toast.show();
+  }
+
+  
 
 });
 

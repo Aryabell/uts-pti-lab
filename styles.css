@@ -26,7 +26,7 @@
 }
 
 .grid-container1 #item h3{
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
 .grid-container1 #item p {
@@ -61,13 +61,14 @@
 }
 
 .grid-container2 #item1 h3{
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
 .grid-container2 #item1 p {
     text-align: justify;
     padding-right: 10px;
     padding-left: 10px;
+    padding-top: auto;
 }
 
 
@@ -89,11 +90,32 @@
 }
 
 .grid-container2 #item2 h3{
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
 .grid-container2 #item2 p {
     text-align: justify;
     padding-right: 10px;
     padding-left: 10px;
+    padding-top: auto;
+}
+
+/* Shared styles for h3 tags */
+.grid-container1 #item h3,
+.grid-container2 #item1 h3,
+.grid-container2 #item2 h3 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    word-wrap: break-word; /* Add this line */
+}
+
+/* Shared styles for paragraph tags */
+.grid-container1 #item p,
+.grid-container2 #item1 p,
+.grid-container2 #item2 p {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   word-wrap: break-word; /* Add this line */
 }
