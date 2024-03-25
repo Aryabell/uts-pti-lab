@@ -1,26 +1,121 @@
+.grid-container1 {
+    display: flex;
+    padding-top: 15px;
+    grid-template-columns: auto auto;
+    border-radius: 10px;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
 
-/* CSS untuk tampilan div */
-#balance {
-    background-color: #0a08084a;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  #transactions {
-    border: 1px solid #882c2c;
-    border-radius: 5px;
-    padding: 10px;
-  }
-  
-  .transaction-item {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .transaction-item p {
-    margin: 0;
-  }
-  
-  
+.grid-container1 #item {
+    height: 370px;
+    width: 99%;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grid-container1 #item img{
+    width: 250px;
+    border-radius: 50%;
+    padding-top: 15px;
+}
+
+.grid-container1 #item h3{
+    padding-top: 10px;
+}
+
+.grid-container1 #item p {
+    text-align: justify;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.grid-container2 {
+    display: flex;
+    padding-top: 15px;
+    grid-template-columns: auto auto;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.grid-container2 #item1 {
+    height: 370px;
+    width: 99%;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grid-container2 #item1 img{
+    width: 250px;
+    border-radius: 50%;
+    padding-top: 15px;
+}
+
+.grid-container2 #item1 h3{
+    padding-top: 10px;
+}
+
+.grid-container2 #item1 p {
+    text-align: justify;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: auto;
+}
+
+
+.grid-container2 #item2 {
+    height: 370px;
+    width: 99%;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grid-container2 #item2 img{
+    width: 250px;
+    border-radius: 50%;
+    padding-top: 15px;
+}
+
+.grid-container2 #item2 h3{
+    padding-top: 10px;
+}
+
+.grid-container2 #item2 p {
+    text-align: justify;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: auto;
+}
+
+/* Shared styles for h3 tags */
+.grid-container1 #item h3,
+.grid-container2 #item1 h3,
+.grid-container2 #item2 h3 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    word-wrap: break-word; /* Add this line */
+}
+
+/* Shared styles for paragraph tags */
+.grid-container1 #item p,
+.grid-container2 #item1 p,
+.grid-container2 #item2 p {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   word-wrap: break-word; /* Add this line */
+}

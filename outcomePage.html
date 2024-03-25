@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Tracker</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
 <body>
   <div class="container">
@@ -125,24 +126,25 @@
       var toastEl = document.getElementById('savedToast');
       var toast = new bootstrap.Toast(toastEl);
       toast.show();
-  }
-
+      
   let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
-  transactions.push({ 
-    "outcomeName": outcomeName,
-    "outcomeAmount": outcomeAmount,
-    "outcomeCategory": outcomeCategory,
-    "outcomeType": "OUTCOME",
-  });
+transactions.push({ 
+  "outcomeName": outcomeName,
+  "outcomeAmount": outcomeAmount,
+  "outcomeCategory": outcomeCategory,
+  "outcomeType": "OUTCOME",
+});
 
-  let balance = parseInt(localStorage.getItem("balance") || "0")
+let balance = parseInt(localStorage.getItem("balance") || "0")
 
-  balance -= parseInt(outcomeAmount)
+balance -= parseInt(outcomeAmount)
 
-  localStorage.setItem("balance", balance)
+localStorage.setItem("balance", balance)
 
-  localStorage.setItem("transactions", JSON.stringify(transactions));
+localStorage.setItem("transactions", JSON.stringify(transactions));
+  }
+
  });
 
  document.getElementById("logout").addEventListener("click", function(event) {
