@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Tracker</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Money Tracker</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
 <body>
   <div class="container">
-  <!-- Navbar -->
+ <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="main.html">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2zdOdvSxr0eQ9SPwOYLOnpt4dXGQc2lp9bw&usqp=CAU" class="rounded me-2" alt="Logo" style="width: 40px; height: 40px;">
@@ -41,32 +40,25 @@
     </ul>
   </div>
 </nav>
-         
-     <!-- About Page Content -->
-     <div id="aboutPage">
-        <h2>About Me</h2>
-        <p>Put your team information here.</p>
-      </div>
-    </div>
 
-    <div class="grid-container2">
-      <div id="item1">
-        <img src="pic about us/devin.jpg"/>
-        <h3>Devin Nathanael (00000103231)</h3>
-        <p><b>Member of the Group</b></p>
-      </div>
-      <div id="item2">
-        <img src="pic about us/aisya.jpg"/>
-       <h3>Aisya Adiyan (00000102361)</h3>
-       <p><b>Member of the Group</b></p>
+    <!-- Content -->
+    <div id="content">
+      <!-- Main Page Content -->
+      <div id="mainPage">
+        <h2>Main Page</h2>
+        <div id="balance"></div>
+        <div id="transactions"></div>
       </div>
     </div>
   </div>
-</div>
-
-
-
+</body>
+  <!-- Bootstrap JS and custom JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
   <script>
+    displayMainPage();
     let username = localStorage.getItem("username");
     if (username) {
       document.getElementById("username").textContent = username;
@@ -80,11 +72,9 @@
     localStorage.removeItem("balance");
     window.location.href = "index.html";
 });
+    
   </script>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="script.js"></script>
-</body>
+ 
+
 </html>
