@@ -9,18 +9,22 @@ function displayMainPage() {
   let balance = parseInt(localStorage.getItem("balance") || 0)
     
   let balanceElement = document.getElementById("balance");
-  balanceElement.innerHTML = "<h3>Saldo sekarang: " + balance + "</h3>";
-
+  balanceElement.innerHTML = "<h3>Saldo sekarang : " + balance + "</h3>";
+  balanceElement.classList.add("balance-element");
   let transactionsElement = document.getElementById("transactions");
-  transactionsElement.innerHTML = "<h4>Daftar Transaksi:</h4>";
+  transactionsElement.innerHTML = "<h4>Daftar Transaksi :</h4>";
+  transactionsElement.classList.add("transactions-element");
   transactions.forEach(transaction => {
     let transactionItem = document.createElement("div");
+    transactionItem.classList.add("transaction-item");
     if (transaction.incomeType === "INCOME") {
-    transactionItem.innerHTML = "<p>Nama Transaksi: " + transaction.incomeName + ", Nominal: " + transaction.incomeAmount + ", Kategori: " + transaction.incomeCategory + "</p>";
-      transactionItem.style.color = "green"; // Pemasukkan ditandai dengan warna hijau
+    transactionItem.innerHTML = "<p>Nama Transaksi : " + transaction.incomeName + ", Nominal : " + transaction.incomeAmount + ", Kategori : " + transaction.incomeCategory + "</p>";
+      transactionItem.style.backgroundColor = "green"; // Pemasukkan ditandai dengan warna hijau
+      transactionItem.style.color = "white";
     } else if (transaction.outcomeType === "OUTCOME") {
-      transactionItem.innerHTML = "<p>Nama Transaksi: " + transaction.outcomeName + ", Nominal: " + transaction.outcomeAmount + ", Kategori: " + transaction.outcomeCategory + "</p>";
-      transactionItem.style.color = "red"; // Pengeluaran ditandai dengan warna merah
+      transactionItem.innerHTML = "<p>Nama Transaksi : " + transaction.outcomeName + ", Nominal : " + transaction.outcomeAmount + ", Kategori : " + transaction.outcomeCategory + "</p>";
+      transactionItem.style.backgroundColor = "red"; // Pengeluaran ditandai dengan warna merah
+      transactionItem.style.color = "white";
     }
     transactionsElement.appendChild(transactionItem);
   });

@@ -9,18 +9,15 @@
     <link rel="stylesheet" href="styles.css">
   </head>
 <body>
-  <div class="container">
-    <h2>Login to Money Tracker</h2>
+  <div class="container" style="padding-top: 150px; align-items: center; text-align: center;">
+    <h2 style="font-weight: bold; font-size: xx-large;">Login to Money Tracker</h2>
+    <img src="https://media.istockphoto.com/id/1282383535/vector/money-bag-icon-on-transparent-background.jpg?s=612x612&w=0&k=20&c=TeyMvf36DovMNhCyTFiDprj6fjwKRGgQ4flyJwg0dps=" style="width: 250px; align-items: center;">
     <form id="loginForm">
-      <div class="form-group">
-        <label for="username">Username:</label>
+      <div class="form-group" style="justify-content: center;">
+        <label for="username" style="font-weight: bold; font-size: xx-large;">Username:</label>
         <input type="text" class="form-control" id="username" required>
       </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" class="form-control" id="password" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" class="btn btn-primary" style="width: 200px; font-weight: bold; font-size: larger;">Login</button>
     </form>
   </div>
 
@@ -29,13 +26,12 @@
       event.preventDefault(); // Prevent default form submission
 
       let username = document.getElementById("username").value.trim();
-      let password = document.getElementById("password").value.trim();
 
       // Here, you can implement your logic to validate username and password
       // For simplicity, let's just check if both fields are non-empty
 
-      if (username === "" || password === "") {
-        alert("Please enter both username and password.");
+      if (username === "") {
+        alert("Please enter the username.");
         return;
       }
 
