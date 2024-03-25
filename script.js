@@ -1,15 +1,13 @@
-// Retrieve user data from input or storage
-let username = ""; // Initialize to empty string
-let balance = 0; // Initialize to 0
-let transactions = []; // Initialize to an empty array
-
 // Function to display username in navbar
-function displayUsername() {
-  document.getElementById("username").innerText = username;
-}
+// function displayUsername() {
+//   document.getElementById("username").innerText = username;
+// }
 
 // Function to display balance and transactions
 function displayMainPage() {
+  let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+  let balance = parseInt(localStorage.getItem("balance") || 0)
+    
   let balanceElement = document.getElementById("balance");
   balanceElement.innerHTML = "<h3>Saldo sekarang: " + balance + "</h3>";
 
@@ -17,10 +15,11 @@ function displayMainPage() {
   transactionsElement.innerHTML = "<h4>Daftar Transaksi:</h4>";
   transactions.forEach(transaction => {
     let transactionItem = document.createElement("div");
-    transactionItem.innerHTML = "<p>Nama Transaksi: " + transaction.name + ", Nominal: " + transaction.amount + ", Kategori: " + transaction.category + "</p>";
-    if (transaction.type === "Income") {
+    if (transaction.incomeType === "INCOME") {
+    transactionItem.innerHTML = "<p>Nama Transaksi: " + transaction.incomeName + ", Nominal: " + transaction.incomeAmount + ", Kategori: " + transaction.incomeCategory + "</p>";
       transactionItem.style.color = "green"; // Pemasukkan ditandai dengan warna hijau
-    } else if (transaction.type === "Outcome") {
+    } else if (transaction.outcomeType === "OUTCOME") {
+      transactionItem.innerHTML = "<p>Nama Transaksi: " + transaction.outcomeName + ", Nominal: " + transaction.outcomeAmount + ", Kategori: " + transaction.outcomeCategory + "</p>";
       transactionItem.style.color = "red"; // Pengeluaran ditandai dengan warna merah
     }
     transactionsElement.appendChild(transactionItem);
@@ -52,7 +51,4 @@ document.getElementById("outcome").addEventListener("click", function() {
   document.getElementById("outcomePage").style.display = "block";
   document.getElementById("aboutPage").style.display = "none";
 });
-
-// You would need to add event listeners for form submissions on Income and Outcome pages
-// Retrieve form data and process transactions accordingly
 
